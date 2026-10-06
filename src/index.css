@@ -1207,7 +1207,7 @@ select:focus-visible {
 
 /*
    This specifically fixes the problem in your screenshot
-   where "Save Contact (.vcf)" is not white/visible.
+   where " (.vcf)" is not white/visible.
 */
 
 .fixed.inset-0.bg-slate-900\/70 a[href^="data:text/vcard"] {

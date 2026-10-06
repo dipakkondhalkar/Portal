@@ -464,9 +464,9 @@ function PublicFormPage({ cards, setCards }) {
                 generateVCard(generatedCard),
               )}`}
               download={`${generatedCard.fullName}.vcf`}
-              className="mt-5 w-full bg-[#5B1B20] text-white py-3 rounded-xl flex items-center justify-center gap-2 text-xs font-bold"
+              className="mt-5 w-full bg-[#E2BA6E] hover:bg-[#d4a94f] text-[#5B1B20] py-3 rounded-xl flex items-center justify-center gap-2 text-xs font-bold transition"
             >
-              <Download className="w-4 h-4 text-[#E2BA6E]" />
+              <Download className="w-4 h-4 text-[#5B1B20]" />
               Save Contact
             </a>
 
@@ -617,7 +617,7 @@ function PublicCardView({ cards }) {
 
               URL.revokeObjectURL(url);
             }}
-            className="px-7 py-3 rounded-full bg-[#5a1f24] text-white font-semibold shadow-lg hover:bg-[#3b1115] transition"
+            className="px-7 py-3 rounded-full bg-[#E2BA6E] text-[#5B1B20] font-bold shadow-lg hover:bg-[#d4a94f] transition"
           >
             Save Contact
           </button>
