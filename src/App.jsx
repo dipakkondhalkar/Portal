@@ -343,7 +343,7 @@ function PublicFormPage({ cards, setCards }) {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Pratik Modak"
+                placeholder="Enter your name"
                 required
                 className="w-full px-3.5 py-2.5 border rounded-xl outline-none"
               />
@@ -375,7 +375,7 @@ function PublicFormPage({ cards, setCards }) {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="pratik@aaryansgroup.org"
+                placeholder="abc@aaryansgroup.org"
                 required
                 className="w-full px-3.5 py-2.5 border rounded-xl outline-none"
               />
