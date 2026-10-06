@@ -1,0 +1,1511 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   AARYANS DIGITAL BUSINESS CARD
+   PREMIUM WHITE + BROWN + GOLD THEME
+   ========================================================= */
+
+:root {
+  /* ===============================
+     AARYANS BRAND COLORS
+     =============================== */
+
+  --aaryans-brown: #5a1f24;
+  --aaryans-brown-dark: #3b1115;
+  --aaryans-brown-light: #742b31;
+
+  --aaryans-gold: #cfa34a;
+  --aaryans-gold-light: #e8c978;
+  --aaryans-gold-pale: #f7edd2;
+
+  /* ===============================
+     WEBSITE COLORS
+     =============================== */
+
+  --page-white: #ffffff;
+  --page-cream: #fbf8f3;
+  --section-cream: #f7f1e8;
+
+  --text-dark: #2c2021;
+  --text-medium: #665355;
+  --text-light: #8c7a7b;
+
+  --border: #e8ddd0;
+  --border-light: #f1e9df;
+
+  /* ===============================
+     SHADOWS
+     =============================== */
+
+  --shadow-small: 0 4px 14px rgba(90, 31, 36, 0.06);
+
+  --shadow-medium: 0 10px 30px rgba(90, 31, 36, 0.09);
+
+  --shadow-large: 0 20px 55px rgba(90, 31, 36, 0.13);
+
+  --shadow-button: 0 8px 22px rgba(90, 31, 36, 0.2);
+
+  /* ===============================
+     STATUS
+     =============================== */
+
+  --success: #277653;
+  --danger: #b42318;
+  --warning: #b7791f;
+
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  color: var(--text-dark);
+
+  background: var(--page-white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(207, 163, 74, 0.07), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbf8f3 100%);
+
+  color: var(--text-dark);
+
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   BUTTONS / INPUTS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   PAGE BACKGROUND
+   ========================================================= */
+
+.min-h-screen {
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+/* Override Tailwind slate backgrounds */
+
+.bg-slate-50 {
+  background: transparent !important;
+}
+
+.bg-slate-100 {
+  background: var(--section-cream) !important;
+}
+
+.bg-slate-200 {
+  background: #eee4d8 !important;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+  background: rgba(255, 255, 255, 0.97) !important;
+
+  color: var(--aaryans-brown) !important;
+
+  border-bottom: 1px solid var(--border) !important;
+
+  box-shadow: 0 5px 25px rgba(90, 31, 36, 0.08) !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  z-index: 50;
+}
+
+/* Header logo */
+
+header img {
+  display: block !important;
+
+  object-fit: contain !important;
+
+  max-height: 60px;
+
+  max-width: 145px;
+
+  transition: transform 0.3s ease;
+}
+
+header img:hover {
+  transform: scale(1.03);
+}
+
+/* Header title */
+
+header h1 {
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -0.025em;
+}
+
+/* Header subtitle */
+
+header p {
+  color: var(--aaryans-brown) !important;
+
+  opacity: 0.7;
+}
+
+/* =========================================================
+   ADMIN PANEL HEADER BUTTON
+   ========================================================= */
+
+header a {
+  color: var(--aaryans-brown) !important;
+
+  background: linear-gradient(180deg, #ffffff, #fdfaf6) !important;
+
+  border: 1px solid var(--aaryans-gold) !important;
+
+  border-radius: 12px !important;
+
+  box-shadow: 0 4px 12px rgba(90, 31, 36, 0.06);
+
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+header a:hover {
+  color: #ffffff !important;
+
+  background: linear-gradient(
+    135deg,
+    var(--aaryans-brown),
+    var(--aaryans-brown-light)
+  ) !important;
+
+  border-color: var(--aaryans-brown) !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-button);
+}
+
+/* =========================================================
+   MAIN FORM AREA
+   ========================================================= */
+
+.max-w-xl {
+  max-width: 680px !important;
+}
+
+/* Main form card */
+
+.max-w-xl > div {
+  position: relative;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.98) !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: 26px !important;
+
+  box-shadow: var(--shadow-large) !important;
+}
+
+/* Premium top line */
+
+.max-w-xl > div::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--aaryans-brown),
+    var(--aaryans-gold),
+    var(--aaryans-brown)
+  );
+}
+
+/* =========================================================
+   FORM HEADING
+   ========================================================= */
+
+.max-w-xl h2 {
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -0.035em;
+}
+
+/* Heading accent line */
+
+.max-w-xl h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+
+  height: 3px;
+
+  margin-top: 12px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, var(--aaryans-gold), var(--aaryans-brown));
+}
+
+.max-w-xl p {
+  color: var(--text-medium) !important;
+}
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+label {
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: 0.01em;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  background: #ffffff !important;
+
+  color: var(--text-dark) !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: 12px !important;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aa9999 !important;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: #c9aa8c !important;
+
+  background: #fffdfa !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+
+  border-color: var(--aaryans-brown) !important;
+
+  background: #ffffff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(90, 31, 36, 0.08),
+    0 4px 12px rgba(90, 31, 36, 0.05) !important;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   GENERATE QR BUTTON
+   ========================================================= */
+
+button[type="submit"] {
+  position: relative;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    var(--aaryans-brown),
+    var(--aaryans-brown-light)
+  ) !important;
+
+  color: #ffffff !important;
+
+  border: none !important;
+
+  border-radius: 13px !important;
+
+  box-shadow: var(--shadow-button) !important;
+
+  font-weight: 700 !important;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+button[type="submit"]::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+button[type="submit"]:hover::before {
+  left: 140%;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(
+    135deg,
+    var(--aaryans-brown-dark),
+    var(--aaryans-brown)
+  ) !important;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 32px rgba(90, 31, 36, 0.25) !important;
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* QR icon */
+
+button[type="submit"] svg {
+  color: var(--aaryans-gold-light) !important;
+}
+
+/* =========================================================
+   BUSINESS CARD
+   ========================================================= */
+
+.w-\[340px\] {
+  background: #ffffff !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: 24px !important;
+
+  box-shadow: 0 22px 55px rgba(90, 31, 36, 0.14) !important;
+
+  overflow: hidden;
+}
+
+/* Brown card header */
+
+.w-\[340px\] .bg-\[\#5B1B20\] {
+  background: linear-gradient(145deg, #5a1f24, #6f292f) !important;
+}
+
+/* Gold company text */
+
+.w-\[340px\] .text-\[\#E2BA6E\] {
+  color: var(--aaryans-gold-light) !important;
+}
+
+/* Card name */
+
+.w-\[340px\] h1 {
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 800 !important;
+}
+
+/* Card icons */
+
+.w-\[340px\] svg {
+  color: var(--aaryans-brown) !important;
+}
+
+/* Card contact hover */
+
+.w-\[340px\] a:hover {
+  color: var(--aaryans-brown) !important;
+}
+
+/* =========================================================
+   QR / PREVIEW MODAL
+   ========================================================= */
+
+.fixed.inset-0 {
+  background: rgba(45, 27, 28, 0.68) !important;
+
+  backdrop-filter: blur(9px);
+
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.fixed.inset-0 > div {
+  background: #ffffff !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: 24px !important;
+
+  box-shadow: 0 30px 80px rgba(40, 18, 20, 0.25) !important;
+}
+
+/* Modal light sections */
+
+.fixed.inset-0 .bg-slate-50 {
+  background: var(--section-cream) !important;
+
+  border: 1px solid var(--border-light) !important;
+}
+
+/* =========================================================
+   ADMIN PANEL
+   ========================================================= */
+
+.max-w-6xl {
+  color: var(--text-dark);
+}
+
+/* Admin white cards */
+
+.max-w-6xl .bg-white {
+  background: #ffffff !important;
+
+  border-color: var(--border) !important;
+
+  box-shadow: var(--shadow-small) !important;
+}
+
+/* Admin section headings */
+
+.max-w-6xl h1,
+.max-w-6xl h2,
+.max-w-6xl h3 {
+  color: var(--aaryans-brown);
+}
+
+/* =========================================================
+   ADMIN TABLE
+   ========================================================= */
+
+table {
+  width: 100%;
+
+  background: #ffffff !important;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+}
+
+table th {
+  background: var(--section-cream) !important;
+
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 700 !important;
+
+  border-bottom: 1px solid var(--border) !important;
+}
+
+table td {
+  color: var(--text-dark) !important;
+
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+table tbody tr {
+  transition: background 0.2s ease;
+}
+
+table tbody tr:hover {
+  background: #fffaf2 !important;
+}
+
+/* =========================================================
+   ADMIN SEARCH
+   ========================================================= */
+
+.max-w-6xl input {
+  background: #ffffff !important;
+
+  border-color: var(--border) !important;
+}
+
+.max-w-6xl input:focus {
+  border-color: var(--aaryans-brown) !important;
+
+  box-shadow: 0 0 0 3px rgba(90, 31, 36, 0.08) !important;
+}
+
+/* =========================================================
+   GOLD BADGES
+   ========================================================= */
+
+.bg-\[\#E2BA6E\] {
+  background: var(--aaryans-gold) !important;
+
+  color: var(--aaryans-brown) !important;
+
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.bg-emerald-100 {
+  background: rgba(39, 118, 83, 0.1) !important;
+
+  border: 1px solid rgba(39, 118, 83, 0.2);
+}
+
+.text-emerald-600 {
+  color: var(--success) !important;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.text-rose-600,
+.text-red-600 {
+  color: var(--danger) !important;
+}
+
+/* =========================================================
+   GENERAL BUTTON ANIMATION
+   ========================================================= */
+
+button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5eee5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d0a963, #a87838);
+
+  border-radius: 20px;
+
+  border: 2px solid #f5eee5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--aaryans-brown);
+}
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--aaryans-gold-light);
+
+  color: var(--aaryans-brown-dark);
+}
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--aaryans-gold);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header {
+    padding: 12px 16px !important;
+  }
+
+  header img {
+    max-width: 105px !important;
+
+    max-height: 50px !important;
+  }
+
+  header h1 {
+    font-size: 15px !important;
+  }
+
+  header p {
+    font-size: 9px !important;
+  }
+
+  .max-w-xl {
+    width: calc(100% - 24px) !important;
+
+    max-width: 680px !important;
+  }
+
+  .max-w-xl > div {
+    border-radius: 20px !important;
+
+    padding: 24px !important;
+  }
+
+  .w-\[340px\] {
+    width: min(340px, calc(100vw - 28px)) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header img {
+    max-width: 90px !important;
+  }
+
+  header h1 {
+    font-size: 14px !important;
+  }
+
+  header p {
+    font-size: 9px !important;
+  }
+
+  .max-w-xl > div {
+    padding: 20px !important;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 14px !important;
+  }
+}
+/* =========================================================
+   AARYANS SUCCESS TOAST
+   ========================================================= */
+
+.success-toast {
+  animation: successToastIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.success-toast-inner {
+  min-width: 340px;
+  max-width: 420px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 16px 16px 18px;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid rgba(207, 163, 74, 0.45);
+
+  border-left: 5px solid var(--aaryans-gold);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 50px rgba(59, 17, 21, 0.18),
+    0 5px 18px rgba(90, 31, 36, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Success icon */
+
+.success-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #f7edd2, #fff8e8);
+
+  color: var(--aaryans-brown);
+
+  border: 1px solid rgba(207, 163, 74, 0.35);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 5px 12px rgba(90, 31, 36, 0.08);
+}
+
+/* Text */
+
+.success-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.success-title {
+  margin: 0 !important;
+
+  color: var(--aaryans-brown) !important;
+
+  font-size: 14px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: -0.01em;
+}
+
+.success-text {
+  margin: 3px 0 0 !important;
+
+  color: var(--text-medium) !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.4;
+}
+
+/* Close button */
+
+.success-close {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none !important;
+
+  border-radius: 9px;
+
+  background: transparent !important;
+
+  color: #9a8585 !important;
+
+  box-shadow: none !important;
+
+  transform: none !important;
+}
+
+.success-close:hover {
+  background: #f7f1e8 !important;
+
+  color: var(--aaryans-brown) !important;
+
+  transform: none !important;
+}
+
+/* Animation */
+
+@keyframes successToastIn {
+  0% {
+    opacity: 0;
+    transform: translateX(35px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .success-toast {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .success-toast-inner {
+    min-width: 0;
+    width: 100%;
+
+    padding: 14px;
+  }
+
+  .success-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =========================================================
+   AARYANS QR CODE SUCCESS MODAL
+   PREMIUM BROWN + GOLD DESIGN
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   DARK BACKDROP
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 {
+  background: rgba(45, 27, 28, 0.72) !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+
+  animation: qrBackdropFade 0.25s ease-out;
+}
+
+/* ---------------------------------------------------------
+   MAIN QR MODAL
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 > div.bg-white.rounded-3xl {
+  position: relative;
+
+  background: #ffffff !important;
+
+  border: 1px solid rgba(207, 163, 74, 0.28) !important;
+
+  border-radius: 28px !important;
+
+  box-shadow:
+    0 35px 90px rgba(45, 20, 22, 0.28),
+    0 12px 35px rgba(90, 31, 36, 0.12) !important;
+
+  overflow: hidden;
+
+  animation: qrModalIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------
+   PREMIUM GOLD TOP LINE
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 > div.bg-white.rounded-3xl::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #5a1f24,
+    #cfa34a,
+    #e8c978,
+    #cfa34a,
+    #5a1f24
+  );
+
+  z-index: 5;
+}
+
+/* ---------------------------------------------------------
+   CLOSE BUTTON
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 > div.bg-white.rounded-3xl > button {
+  width: 36px !important;
+  height: 36px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: #faf7f2 !important;
+
+  color: #8d7778 !important;
+
+  border: 1px solid #eadfce !important;
+
+  box-shadow: none !important;
+
+  transform: none !important;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.fixed.inset-0.bg-slate-900\/70 > div.bg-white.rounded-3xl > button:hover {
+  background: #5a1f24 !important;
+
+  color: #ffffff !important;
+
+  border-color: #5a1f24 !important;
+
+  transform: rotate(90deg) !important;
+}
+
+/* =========================================================
+   SUCCESS TICK ICON
+   ========================================================= */
+
+/*
+   Your JSX currently has:
+
+   <div className="w-14 h-14 bg-emerald-100
+   text-emerald-600 rounded-2xl ...">
+
+   This CSS converts it into a premium circular
+   success indicator.
+*/
+
+.fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 {
+  width: 68px !important;
+  height: 68px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  margin-bottom: 18px !important;
+
+  border-radius: 50% !important;
+
+  background: linear-gradient(145deg, #277653, #3d916b) !important;
+
+  color: #ffffff !important;
+
+  border: 4px solid #edf7f1 !important;
+
+  box-shadow:
+    0 0 0 1px rgba(39, 118, 83, 0.18),
+    0 10px 25px rgba(39, 118, 83, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+
+  animation: successPop 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Make the actual CheckCircle2 icon clearly visible */
+
+.fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 svg {
+  width: 38px !important;
+  height: 38px !important;
+
+  color: #ffffff !important;
+
+  stroke: #ffffff !important;
+
+  stroke-width: 2.5 !important;
+
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
+}
+
+/* ---------------------------------------------------------
+   QR GENERATED TITLE
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 h3 {
+  color: #2c2021 !important;
+
+  font-size: 23px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -0.035em !important;
+
+  line-height: 1.25 !important;
+
+  margin-bottom: 6px !important;
+}
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+   --------------------------------------------------------- */
+
+.fixed.inset-0.bg-slate-900\/70 h3 + p {
+  color: #756264 !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.6 !important;
+
+  max-width: 280px;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* =========================================================
+   QR CODE BOX
+   ========================================================= */
+
+.fixed.inset-0.bg-slate-900\/70 .bg-slate-50.rounded-2xl {
+  position: relative;
+
+  background: linear-gradient(145deg, #fbf8f3, #f7f0e6) !important;
+
+  border: 1px solid #e9ddce !important;
+
+  border-radius: 20px !important;
+
+  padding: 22px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px rgba(90, 31, 36, 0.06) !important;
+}
+
+/* White QR area */
+
+.fixed.inset-0.bg-slate-900\/70 .bg-slate-50.rounded-2xl svg {
+  display: block;
+
+  background: #ffffff;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(45, 27, 28, 0.08);
+}
+
+/* =========================================================
+   SAVE CONTACT BUTTON
+   ========================================================= */
+
+/*
+   This specifically fixes the problem in your screenshot
+   where "Save Contact (.vcf)" is not white/visible.
+*/
+
+.fixed.inset-0.bg-slate-900\/70 a[href^="data:text/vcard"] {
+  width: 100% !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  gap: 9px !important;
+
+  min-height: 48px !important;
+
+  padding: 13px 18px !important;
+
+  background: linear-gradient(135deg, #5a1f24, #742b31) !important;
+
+  color: #ffffff !important;
+
+  -webkit-text-fill-color: #ffffff !important;
+
+  border: 1px solid #5a1f24 !important;
+
+  border-radius: 14px !important;
+
+  font-size: 13px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.2 !important;
+
+  text-align: center !important;
+
+  text-decoration: none !important;
+
+  box-shadow: 0 8px 20px rgba(90, 31, 36, 0.18) !important;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease !important;
+}
+
+/* Save contact icon */
+
+.fixed.inset-0.bg-slate-900\/70 a[href^="data:text/vcard"] svg {
+  width: 18px !important;
+  height: 18px !important;
+
+  color: #e8c978 !important;
+
+  stroke: #e8c978 !important;
+
+  flex-shrink: 0;
+}
+
+/* Save contact hover */
+
+.fixed.inset-0.bg-slate-900\/70 a[href^="data:text/vcard"]:hover {
+  background: linear-gradient(135deg, #3b1115, #5a1f24) !important;
+
+  color: #ffffff !important;
+
+  -webkit-text-fill-color: #ffffff !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow: 0 13px 28px rgba(90, 31, 36, 0.25) !important;
+}
+
+/* =========================================================
+   CLOSE WINDOW BUTTON
+   ========================================================= */
+
+.fixed.inset-0.bg-slate-900\/70
+  > div.bg-white.rounded-3xl
+  button:not(:first-child) {
+  font-weight: 700 !important;
+}
+
+/*
+   Specifically style the "Close Window" button.
+*/
+
+.fixed.inset-0.bg-slate-900\/70 .space-y-2 > button {
+  width: 100% !important;
+
+  min-height: 44px !important;
+
+  padding: 11px 16px !important;
+
+  background: #f7f1e8 !important;
+
+  color: #5a1f24 !important;
+
+  border: 1px solid #eadfce !important;
+
+  border-radius: 13px !important;
+
+  font-size: 12px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.2 !important;
+
+  box-shadow: none !important;
+
+  transform: none !important;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.fixed.inset-0.bg-slate-900\/70 .space-y-2 > button:hover {
+  background: #5a1f24 !important;
+
+  color: #ffffff !important;
+
+  border-color: #5a1f24 !important;
+
+  transform: translateY(-1px) !important;
+}
+
+/* =========================================================
+   MODAL ANIMATIONS
+   ========================================================= */
+
+@keyframes qrBackdropFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes qrModalIn {
+  0% {
+    opacity: 0;
+
+    transform: translateY(20px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes successPop {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  70% {
+    transform: scale(1.08) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* =========================================================
+   MOBILE QR MODAL
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .fixed.inset-0.bg-slate-900\/70 {
+    padding: 14px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 > div.bg-white.rounded-3xl {
+    max-width: 100% !important;
+
+    padding: 24px 18px !important;
+
+    border-radius: 24px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 svg {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 h3 {
+    font-size: 20px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 .bg-slate-50.rounded-2xl {
+    padding: 16px !important;
+  }
+
+  .fixed.inset-0.bg-slate-900\/70 a[href^="data:text/vcard"] {
+    min-height: 46px !important;
+
+    font-size: 12px !important;
+  }
+}
+/* SIMPLE SUCCESS TICK */
+
+.fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 {
+  width: 64px !important;
+  height: 64px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 auto 18px auto !important;
+  padding: 0 !important;
+
+  border-radius: 16px !important;
+
+  background: #e8f5ee !important;
+
+  border: 1px solid #c9e6d5 !important;
+
+  color: #277653 !important;
+
+  box-shadow: none !important;
+}
+
+/* ONLY THE TICK */
+
+.fixed.inset-0.bg-slate-900\/70 .bg-emerald-100 svg {
+  width: 40px !important;
+  height: 40px !important;
+
+  color: #277653 !important;
+
+  stroke: #277653 !important;
+
+  stroke-width: 3 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  display: block !important;
+}
+/* =========================================================
+   FIX ADMIN EYE / VIEW PREVIEW SCROLLING
+   ========================================================= */
+
+/* Allow the Eye/View modal to scroll vertically */
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl {
+  max-height: 90vh !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+}
+
+/* Make scrollbar attractive */
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl::-webkit-scrollbar {
+  width: 7px;
+}
+
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl::-webkit-scrollbar-track {
+  background: #f7f1e8;
+  border-radius: 10px;
+}
+
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl::-webkit-scrollbar-thumb {
+  background: #cfa34a;
+  border-radius: 10px;
+}
+
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl::-webkit-scrollbar-thumb:hover {
+  background: #5a1f24;
+}
+
+/* Keep the close button visible while scrolling */
+.fixed.inset-0.bg-slate-900\/70 > div.max-w-3xl > button {
+  position: absolute !important;
+
+  top: 16px !important;
+  right: 16px !important;
+
+  z-index: 20 !important;
+}
