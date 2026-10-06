@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   Link,
+  Navigate,
   useParams,
   useNavigate,
 } from "react-router-dom";
@@ -32,6 +33,15 @@ import {
 } from "lucide-react";
 
 import aaryansLogo from "./assets/image.png";
+
+/* =========================================================
+   SECRET ADMIN URL
+   Change this to your own hard-to-guess path.
+   The admin panel is only reachable at:
+   https://your-site.com + ADMIN_PATH
+   ========================================================= */
+
+const ADMIN_PATH = "/aaryans-admin-x7k2q9";
 
 /* =========================================================
    CREATE PUBLIC QR URL
@@ -96,11 +106,9 @@ export default function App() {
   const [adminCreds, setAdminCreds] = useState(() => {
     try {
       const saved = localStorage.getItem("admin_credentials");
-      return saved
-        ? JSON.parse(saved)
-        : { username: "admin", password: "admin123" };
+      return saved ? JSON.parse(saved) : null;
     } catch {
-      return { username: "admin", password: "admin123" };
+      return null;
     }
   });
 
@@ -113,7 +121,9 @@ export default function App() {
   }, [cards]);
 
   useEffect(() => {
-    localStorage.setItem("admin_credentials", JSON.stringify(adminCreds));
+    if (adminCreds) {
+      localStorage.setItem("admin_credentials", JSON.stringify(adminCreds));
+    }
   }, [adminCreds]);
 
   return (
@@ -131,7 +141,7 @@ export default function App() {
 
           {/* ADMIN */}
           <Route
-            path="/admin"
+            path={ADMIN_PATH}
             element={
               <AdminPanel
                 cards={cards}
@@ -143,6 +153,8 @@ export default function App() {
               />
             }
           />
+          {/* ANY UNKNOWN URL GOES TO HOME */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>
@@ -300,14 +312,6 @@ function PublicFormPage({ cards, setCards }) {
             </p>
           </div>
         </div>
-
-        <Link
-          to="/admin"
-          className="text-xs bg-black/20 text-amber-200 border border-amber-300/30 px-3.5 py-2 rounded-xl flex items-center gap-2"
-        >
-          <Lock className="w-3.5 h-3.5" />
-          Admin Panel
-        </Link>
       </header>
 
       {/* FORM */}
@@ -649,8 +653,12 @@ function AdminPanel({
   const [success, setSuccess] = useState("");
   const [showSettings, setShowSettings] = useState(false);
 
-  const [newUsername, setNewUsername] = useState(adminCreds.username);
-  const [newPassword, setNewPassword] = useState(adminCreds.password);
+  const [newUsername, setNewUsername] = useState(adminCreds?.username || "");
+  const [newPassword, setNewPassword] = useState("");
+
+  const [setupUsername, setSetupUsername] = useState("");
+  const [setupPassword, setSetupPassword] = useState("");
+  const [setupError, setSetupError] = useState("");
 
   const navigate = useNavigate();
 
@@ -680,6 +688,92 @@ function AdminPanel({
     localStorage.removeItem("admin_session");
     navigate("/");
   };
+
+  /* FIRST-TIME SETUP (no default username/password) */
+  if (!adminCreds) {
+    const createAdmin = (e) => {
+      e.preventDefault();
+
+      if (setupUsername.trim().length < 4) {
+        setSetupError("Username must be at least 4 characters.");
+        return;
+      }
+
+      if (setupPassword.length < 8) {
+        setSetupError("Password must be at least 8 characters.");
+        return;
+      }
+
+      setAdminCreds({
+        username: setupUsername.trim(),
+        password: setupPassword,
+      });
+
+      setIsAuthenticated(true);
+      localStorage.setItem("admin_session", "true");
+    };
+
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
+        <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
+          <div className="flex justify-center mb-5">
+            <img src={aaryansLogo} alt="Aaryans" className="h-14" />
+          </div>
+
+          <div className="w-14 h-14 bg-[#5B1B20]/10 text-[#5B1B20] rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <KeyRound className="w-7 h-7" />
+          </div>
+
+          <h2 className="text-xl font-bold text-center">
+            Create Admin Account
+          </h2>
+
+          <p className="text-xs text-slate-500 text-center mt-2">
+            Choose your own username and password for this admin panel.
+          </p>
+
+          {setupError && (
+            <div className="mt-4 bg-red-50 border border-red-200 text-red-600 rounded-xl p-3 text-xs flex gap-2">
+              <ShieldAlert className="w-4 h-4 shrink-0" />
+              {setupError}
+            </div>
+          )}
+
+          <form onSubmit={createAdmin} className="space-y-4 mt-6">
+            <div className="relative">
+              <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Choose username"
+                value={setupUsername}
+                onChange={(e) => setSetupUsername(e.target.value)}
+                autoComplete="off"
+                required
+                className="w-full pl-10 pr-3 py-3 border rounded-xl text-sm"
+              />
+            </div>
+
+            <div className="relative">
+              <KeyRound className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+              <input
+                type="password"
+                placeholder="Choose password (min 8 characters)"
+                value={setupPassword}
+                onChange={(e) => setSetupPassword(e.target.value)}
+                autoComplete="new-password"
+                required
+                className="w-full pl-10 pr-3 py-3 border rounded-xl text-sm"
+              />
+            </div>
+
+            <button className="w-full bg-[#5B1B20] text-white py-3 rounded-xl font-bold text-sm">
+              Create Admin Account
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   /* LOGIN SCREEN */
   if (!isAuthenticated) {
@@ -735,10 +829,6 @@ function AdminPanel({
             </button>
           </form>
 
-          <p className="text-[11px] text-slate-400 text-center mt-5">
-            Default: admin / admin123
-          </p>
-
           <Link
             to="/"
             className="mt-5 flex justify-center items-center gap-1 text-xs text-slate-500"
@@ -786,8 +876,8 @@ function AdminPanel({
     e.preventDefault();
 
     setAdminCreds({
-      username: newUsername,
-      password: newPassword,
+      username: newUsername.trim(),
+      password: newPassword || adminCreds.password,
     });
 
     setShowSettings(false);
@@ -826,7 +916,11 @@ function AdminPanel({
 
         <div className="flex gap-2">
           <button
-            onClick={() => setShowSettings(true)}
+            onClick={() => {
+              setNewUsername(adminCreds.username);
+              setNewPassword("");
+              setShowSettings(true);
+            }}
             className="text-xs bg-black/20 px-3 py-2 rounded-xl text-amber-200 flex items-center gap-1"
           >
             <Settings className="w-3.5 h-3.5" />
@@ -1081,8 +1175,8 @@ function AdminPanel({
                 type="password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Password"
-                required
+                placeholder="New password (leave blank to keep current)"
+                autoComplete="new-password"
                 className="w-full border rounded-xl p-3 text-sm"
               />
 
