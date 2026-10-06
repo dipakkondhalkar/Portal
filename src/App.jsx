@@ -433,6 +433,17 @@ function PublicFormPage({ cards, setCards }) {
         </div>
       </div>
 
+      {/* SMALL ADMIN BUTTON */}
+      <div className="text-center pb-8">
+        <Link
+          to={ADMIN_PATH}
+          className="inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-[#5B1B20] transition"
+        >
+          <Lock className="w-3 h-3" />
+          Admin
+        </Link>
+      </div>
+
       {/* QR POPUP */}
       {qrUrl && generatedCard && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-y-auto">
